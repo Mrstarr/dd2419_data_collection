@@ -14,7 +14,7 @@ $ mkdir build
 ```
 
 ## Running
-
+After base launching and power up the drone, run:
 ```
 $ rosrun data_collection gui.py
 ```
