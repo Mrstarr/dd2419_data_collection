@@ -3,6 +3,7 @@ Simple GUI to record camera data:
 <p align="left">
   <img src="./dd2419_coco2/demo.jpg" width="450">
 </p>
+
 ## Prerequisites
 
 - Rospy
