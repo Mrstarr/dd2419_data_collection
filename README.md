@@ -1,7 +1,7 @@
 # dd2419_data_collection
 Simple GUI to record camera data:
 <p align="center">
-  <img src="./dd2419_coco2/demo.png" alt="Size Limit CLI" width="738">
+  <img src="./dd2419_coco2/demo.png" width="600">
 </p>
 ## Prerequisites
 
