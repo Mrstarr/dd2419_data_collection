@@ -60,13 +60,13 @@ class Data_GUI():
         except CvBridgeError as e:
             print(e)
 
-        
-        # convert te images to PIL format...
-        img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
-        img = PIL.Image.fromarray(img)
-        tkimg = ImageTk.PhotoImage(img)
-        self.panel.config(image=tkimg)
-        self.panel.tkimg = tkimg
+        if not rospy.is_shutdown():
+            # convert te images to PIL format...
+            img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
+            img = PIL.Image.fromarray(img)
+            tkimg = ImageTk.PhotoImage(img)
+            self.panel.config(image=tkimg)
+            self.panel.tkimg = tkimg
         
         return None
 
@@ -86,11 +86,6 @@ def main():
     root = tk.Tk()
     data_gui = Data_GUI(root)
     root.mainloop()
-
-    try:
-        rospy.spin()
-    except KeyboardInterrupt:
-        print("Shutting down")
 
 
 if __name__ == "__main__":
