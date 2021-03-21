@@ -19,3 +19,4 @@ After base launching and power up the drone, run:
 $ rosrun data_collection gui.py
 ```
 Once click `save`, the current record of camera data will be saved.
+GUI looks like this:
