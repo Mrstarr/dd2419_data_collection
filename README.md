@@ -7,7 +7,7 @@ Simple GUI to record camera data
 - Tkinter
 
 ## Installing
-Under `dd2419_ws`
+Under `~\dd2419_ws\src`
 ```
 $ git clone https://github.com/Mrstarr/dd2419_data_collection.git
 $ mkdir build
