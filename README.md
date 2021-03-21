@@ -1,6 +1,8 @@
 # dd2419_data_collection
 Simple GUI to record camera data:
-<img src="./dd2419_coco2/demo.jpg" width="450">
+<p align="left">
+  <img src="./dd2419_coco2/demo.jpg" width="450">
+</p>
 ## Prerequisites
 
 - Rospy
