@@ -16,6 +16,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 
+
 class Data_GUI():
 
     def __init__(self,master):
@@ -32,6 +33,8 @@ class Data_GUI():
         dir = os.path.dirname(os.path.dirname(__file__))
         self.path = os.path.join(dir,'dd2419_coco2')
 
+        self.idx = 1
+
     def layout(self):
         
         self.master.title("Data Collection GUI")
@@ -42,12 +45,20 @@ class Data_GUI():
         self.frame1.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
         self.frame2 = tk.Frame(self.master, width=100, bg="white")
         self.frame2.pack(fill=tk.BOTH, side=tk.LEFT, expand=True)
-        self.label = tk.Label(master=self.frame1,text ='please enter file name :')
+        self.label = tk.Label(master=self.frame1,text ='Please enter file name :')
         self.label.pack()
         self.entry = tk.Entry(master=self.frame1)
         self.entry.pack()
         self.button = tk.Button(master = self.frame2,text='Save',width = 10,height = 2,bg='white',fg='black',command=self.save)
         self.button.pack()
+
+        # This is to allow change of idx and automatic idx, so that we don't need to write it every time
+        self.label2 = tk.Label(master=self.frame1,text ='Please enter start idx:')
+        self.label2.pack()
+        self.entry2 = tk.Entry(master=self.frame1)
+        self.entry2.pack()
+        self.button2 = tk.Button(master = self.frame2,text='Set idx',width = 10,height = 2,bg='white',fg='black',command=self.reset)
+        self.button2.pack()
         
 
     def feedback(self,data):
@@ -74,10 +85,16 @@ class Data_GUI():
     def save(self):
         filename = self.entry.get()
         suffix = '.jpg'
-        file_path = os.path.join(self.path, filename + suffix)
+        file_path = os.path.join(self.path, filename +str(self.idx)+ suffix)
+        self.idx +=1
         cv2.imwrite(file_path, self.img)
         '''
         '''
+    def reset(self):
+        try:
+            self.idx = int(self.entry2.get())
+        except:
+            self.idx=1
 
 def main():
     rospy.init_node('yolo_detector', anonymous=True)
